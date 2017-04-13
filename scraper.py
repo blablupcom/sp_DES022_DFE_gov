@@ -100,7 +100,7 @@ blocks = soup.select('div.dataset-resource-text')
 for block in blocks:
     link = block.find_next('a').find_next('a')['href']
     if '.csv' in link:
-        link_text = block.select_one('span.inner-cell').text.strip()
+        link_text = block.find('span', 'inner-cell').text.strip()
         csvYr = link_text.split()[-1]
         csvMth = link_text.split()[-2][:3]
         if '12th' in csvYr:
